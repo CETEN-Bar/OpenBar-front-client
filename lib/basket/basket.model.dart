@@ -75,4 +75,12 @@ class Basket extends ChangeNotifier {
   bool isInBasket(Product product) {
     return _products.containsKey(product);
   }
+
+  int getItemNumber(Product product) {
+    if (isInBasket(product)) {
+      return _products[product]!;
+    } else {
+      return -1;
+    }
+  }
 }

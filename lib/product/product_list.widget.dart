@@ -30,7 +30,7 @@ class _ProductListState extends State<ProductList> {
                 WordPair.random().asPascalCase,
                 WordPair.random().asPascalCase,
                 'https://picsum.photos/500/500?$j',
-                10.5,
+                Random.secure().nextDouble() * 20,
                 j % 6 == 0 ? true : false));
           }
         }

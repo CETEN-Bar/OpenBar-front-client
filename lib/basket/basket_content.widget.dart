@@ -20,7 +20,8 @@ class BasketContent extends StatelessWidget {
                       child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Column(children: [
-                            Row(
+                            Wrap(
+                              direction: Axis.horizontal,
                               children: [
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,61 +34,70 @@ class BasketContent extends StatelessWidget {
                                                 .colorScheme
                                                 .onSecondaryContainer)),
                                     Text(
-                                        "Prix unitaire : ${basket.items[i].product.price}€",
+                                        "Prix unitaire : ${basket.items[i].product.price.toStringAsFixed(2)}€",
                                         style: TextStyle(
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .onSecondaryContainer)),
+                                    Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          if (basket
+                                              .items[i].product.availableLater)
+                                            Chip(
+                                              label: Text(
+                                                  'Disponible plus tard',
+                                                  style: TextStyle(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onPrimary)),
+                                              backgroundColor: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                              shadowColor: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                            )
+                                        ])
                                   ],
                                 ),
-                                const Spacer(),
-                                IconButton(
-                                  icon: const Icon(Icons.remove_circle_outline),
-                                  tooltip: "Remove one",
-                                  onPressed: () => {
-                                    basket.removeOne(basket.items[i].product)
-                                  },
-                                ),
-                                Chip(label: Text("${basket.items[i].amount}")),
-                                IconButton(
-                                  icon: const Icon(Icons.add_circle_outline),
-                                  tooltip: "Add one",
-                                  onPressed: () =>
-                                      {basket.addOne(basket.items[i].product)},
-                                ),
-                                IconButton(
-                                  icon: const Icon(Icons.delete),
-                                  tooltip: "Remove",
-                                  onPressed: () => {
-                                    basket
-                                        .removeProduct(basket.items[i].product)
-                                  },
-                                )
+                                Row(children: [
+                                  IconButton(
+                                    icon:
+                                        const Icon(Icons.remove_circle_outline),
+                                    tooltip: "Remove one",
+                                    onPressed: () => {
+                                      basket.removeOne(basket.items[i].product)
+                                    },
+                                  ),
+                                  Chip(
+                                      label: Text("${basket.items[i].amount}")),
+                                  IconButton(
+                                    icon: const Icon(Icons.add_circle_outline),
+                                    tooltip: "Add one",
+                                    onPressed: () => {
+                                      basket.addOne(basket.items[i].product)
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    tooltip: "Remove",
+                                    onPressed: () => {
+                                      basket.removeProduct(
+                                          basket.items[i].product)
+                                    },
+                                  )
+                                ])
                               ],
                             ),
-                            Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if (basket.items[i].product.availableLater)
-                                    Chip(
-                                      label: Text('Disponible plus tard',
-                                          style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimary)),
-                                      backgroundColor:
-                                          Theme.of(context).colorScheme.primary,
-                                      shadowColor:
-                                          Theme.of(context).colorScheme.primary,
-                                    )
-                                ])
                           ])));
                 },
               )),
               Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(children: [
-                    Text("Total: ${basket.price}€",
+                    Text("Total: ${basket.price.toStringAsFixed(2)}€",
                         style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,

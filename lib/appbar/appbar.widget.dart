@@ -22,7 +22,12 @@ class MainBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: Icon(Icons.logout,
               color: Theme.of(context).colorScheme.onPrimaryContainer),
-          onPressed: () => {},
+          onPressed: () => {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginPage()),
+            )
+          },
           tooltip: 'Log out',
         ),
         IconButton(
@@ -34,12 +39,7 @@ class MainBar extends StatelessWidget implements PreferredSizeWidget {
                     backgroundImage: NetworkImage(
                       'https://picsum.photos/500/500',
                     ))),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
-            }),
+            onPressed: () {}),
       ],
     );
   }

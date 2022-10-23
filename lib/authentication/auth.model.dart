@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AuthModel extends ChangeNotifier {
   int _userId = 0;
   String _username = "";
+  String image = "";
   bool get isConnected => _userId != 0;
   List<String> groups = [];
   num balance = 0;
