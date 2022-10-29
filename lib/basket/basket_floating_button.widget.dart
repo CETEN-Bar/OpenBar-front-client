@@ -12,9 +12,11 @@ class BasketButton extends StatelessWidget {
     return FloatingActionButton(
       child: Badge(
         badgeContent: Consumer<Basket>(
-            builder: (context, basket, child) => Text("${basket.productNumber}",
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onTertiary))),
+          builder: (context, basket, child) => Text(
+            "${basket.productNumber}",
+            style: TextStyle(color: Theme.of(context).colorScheme.onTertiary),
+          ),
+        ),
         position: BadgePosition.bottomEnd(),
         badgeColor: Theme.of(context).colorScheme.tertiary,
         child: const Icon(Icons.shopping_basket),

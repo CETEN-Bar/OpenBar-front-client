@@ -12,68 +12,80 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Container(
-      width: 300,
-      height: 500,
-      child: Column(children: [
-        const Text(
-          'OpenBar',
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-        ),
-        Form(
+      body: Center(
+        child: Container(
+          width: 300,
+          height: 500,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(height: 10),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Enter your email',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(42.0)),
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+            children: [
+              const Text(
+                'OpenBar',
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(42.0)),
+              Form(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter your email',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(42.0),
+                        ),
+                      ),
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(42.0),
+                        ),
+                      ),
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: ElevatedButton(
+                        onPressed: () => {
+                          Navigator.of(context).pushReplacement(_createRoute()),
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            foregroundColor:
+                                Theme.of(context).colorScheme.onPrimary),
+                        child: const Text(
+                          'Se connecter',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => {},
+                      child: const Text('Mot de passe oublié'),
+                    )
+                  ],
                 ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: ElevatedButton(
-                  onPressed: () => {
-                    Navigator.of(context).pushReplacement(_createRoute()),
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor: Theme.of(context).colorScheme.onPrimary),
-                  child: const Text('Se connecter',
-                      style: TextStyle(color: Colors.white)),
-                ),
-              ),
-              TextButton(
-                  onPressed: () => {}, child: const Text('Mot de passe oublié'))
             ],
           ),
         ),
-      ]),
-    )));
+      ),
+    );
   }
 }
 

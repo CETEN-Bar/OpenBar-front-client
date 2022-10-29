@@ -25,21 +25,24 @@ class MainBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () => {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const LoginPage()),
-            )
+              MaterialPageRoute(
+                builder: (context) => const LoginPage(),
+              ),
+            ),
           },
           tooltip: 'Log out',
         ),
         IconButton(
-            icon: Container(
-                height: 34,
-                width: 40,
-                child: const CircleAvatar(
-                    radius: 48,
-                    backgroundImage: NetworkImage(
-                      'https://picsum.photos/500/500',
-                    ))),
-            onPressed: () {}),
+          icon: Container(
+              height: 34,
+              width: 40,
+              child: const CircleAvatar(
+                  radius: 48,
+                  backgroundImage: NetworkImage(
+                    'https://picsum.photos/500/500',
+                  ))),
+          onPressed: () {},
+        ),
       ],
     );
   }

@@ -22,20 +22,21 @@ class BasketBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-            icon: Container(
-                height: 34,
-                width: 40,
-                child: const CircleAvatar(
-                    radius: 48,
-                    backgroundImage: NetworkImage(
-                      'https://picsum.photos/500/500',
-                    ))),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
-            }),
+          icon: Container(
+              height: 34,
+              width: 40,
+              child: const CircleAvatar(
+                  radius: 48,
+                  backgroundImage: NetworkImage(
+                    'https://picsum.photos/500/500',
+                  ))),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginPage()),
+            );
+          },
+        ),
       ],
     );
   }

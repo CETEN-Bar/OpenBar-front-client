@@ -15,29 +15,34 @@ class MenuTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        child: Card(
-            color: backgroundColor,
-            child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 30, horizontal: 22),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold)),
-                    Text(description,
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16)),
-                  ],
-                ))),
-        onTap: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => nextPage),
-              )
-            });
+      child: Card(
+        color: backgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 22),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                description,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
+              ),
+            ],
+          ),
+        ),
+      ),
+      onTap: () => {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => nextPage),
+        )
+      },
+    );
   }
 }

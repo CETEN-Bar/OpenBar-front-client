@@ -38,9 +38,10 @@ class _ProductListState extends State<ProductList> {
         return ProductCard(product: _products[index]);
       },
       gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: (getScreenSize(context) == ScreenSize.ExtraLarge)
-              ? 3
-              : ((getScreenSize(context) == ScreenSize.Large) ? 2 : 1)),
+        crossAxisCount: (getScreenSize(context) == ScreenSize.ExtraLarge)
+            ? 3
+            : ((getScreenSize(context) == ScreenSize.Large) ? 2 : 1),
+      ),
     );
   }
 }
