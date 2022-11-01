@@ -3,11 +3,25 @@ import 'package:flutter/cupertino.dart';
 
 import '../product/product.model.dart';
 
-class BasketItem {
-  final Product product;
+
+abstract class BasketContent {
+  String name;
   int amount;
-  BasketItem(this.product, this.amount);
+  num price;
+  BasketContent(this.name, this.amount, this.price);
 }
+
+class BasketItem extends BasketContent {
+  Product product;
+  @override
+  String get name => product.name;
+  @override
+  num get price => product.price;
+
+  BasketItem(this.product, int amount) : super('', amount, 0);
+}
+
+
 
 class Basket extends ChangeNotifier {
   final Map<Product, int> _products = {};
@@ -44,13 +58,11 @@ class Basket extends ChangeNotifier {
       if (_products[product] == 0) {
         removeProduct(product);
       }
-    } else {
-      _products[product] = 1;
     }
     notifyListeners();
   }
 
-  void removeProduct(Product product) {
+  void removeProduct(Product product) {   
     _products.remove(product);
     notifyListeners();
   }
