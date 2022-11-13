@@ -44,28 +44,23 @@ class BasketContent extends StatelessWidget {
                                         .colorScheme
                                         .onSecondaryContainer),
                               ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Wrap(
+                                spacing: 6.0,
+                                runSpacing: 6.0,
                                 children: [
-                                  Wrap(
-                                    children: [
-                                      for (String element
-                                          in basket.items[i].options)
-                                        Chip(
-                                          label: Text(element,
-                                              style: TextStyle(
-                                                  color: Theme.of(context)
-                                                      .colorScheme
-                                                      .onPrimary)),
-                                          backgroundColor: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                          shadowColor: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                        )
-                                    ],
-                                  )
+                                  for (String element
+                                      in basket.items[i].options)
+                                    Chip(
+                                      label: Text(element,
+                                          style: TextStyle(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary)),
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.primary,
+                                      shadowColor:
+                                          Theme.of(context).colorScheme.primary,
+                                    )
                                 ],
                               )
                             ],
