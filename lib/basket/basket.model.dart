@@ -3,12 +3,12 @@ import 'package:flutter/cupertino.dart';
 
 import '../product/product.model.dart';
 
-
 abstract class BasketContent {
   String name;
   int amount;
   num price;
-  BasketContent(this.name, this.amount, this.price);
+  List<String> options;
+  BasketContent(this.name, this.amount, this.price, this.options);
 }
 
 class BasketItem extends BasketContent {
@@ -18,10 +18,10 @@ class BasketItem extends BasketContent {
   @override
   num get price => product.price;
 
-  BasketItem(this.product, int amount) : super('', amount, 0);
+  BasketItem(this.product, int amount)
+      : super('', amount, 0,
+            product.availableLater ? ["Disponible plus tard"] : []);
 }
-
-
 
 class Basket extends ChangeNotifier {
   final Map<Product, int> _products = {};
@@ -62,7 +62,7 @@ class Basket extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeProduct(Product product) {   
+  void removeProduct(Product product) {
     _products.remove(product);
     notifyListeners();
   }

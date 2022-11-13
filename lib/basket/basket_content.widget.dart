@@ -47,18 +47,25 @@ class BasketContent extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  if (basket.items[i].product.availableLater)
-                                    Chip(
-                                      label: Text('Disponible plus tard',
-                                          style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimary)),
-                                      backgroundColor:
-                                          Theme.of(context).colorScheme.primary,
-                                      shadowColor:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                                  Wrap(
+                                    children: [
+                                      for (String element
+                                          in basket.items[i].options)
+                                        Chip(
+                                          label: Text(element,
+                                              style: TextStyle(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onPrimary)),
+                                          backgroundColor: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                          shadowColor: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                        )
+                                    ],
+                                  )
                                 ],
                               )
                             ],

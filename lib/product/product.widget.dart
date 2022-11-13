@@ -71,7 +71,7 @@ class _ProductCardState extends State<ProductCard> {
           Center(
             child: Text(
               widget.product.name,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           ),
           Padding(
